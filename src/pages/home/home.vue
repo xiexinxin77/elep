@@ -1,5 +1,7 @@
 <template>
   <div>
+    <img src="https://i0.hdslb.com/bfs/face/fbbdc8d208b94a97e7540cebe6aca42c5f1c36ad.jpg@160w_160h_1c_1s.webp" alt="">
+
     <head-top signin-up='home'>
       <span slot='logo' class="head_logo">ele.me</span>
     </head-top>

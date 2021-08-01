@@ -1,6 +1,6 @@
-import fetch from '../config/fetch'
+// import fetch from '../config/fetch'
 import {getStore} from '../config/mUtils'
-
+import fetch  from '../config/axios';
 /**
  * 获取首页默认地址
  */
@@ -79,7 +79,7 @@ export const shopList = (latitude, longitude, offset, restaurant_category_id = '
 		latitude,
 		longitude,
 		offset,
-		limit: '20',
+		limit: '10',
 		'extras[]': 'activities',
 		keyword: '',
 		restaurant_category_id,

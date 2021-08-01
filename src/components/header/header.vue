@@ -17,11 +17,12 @@
       <span class="title_text">{{headTitle}}</span>
     </section>
     <slot name="msite-title"></slot>
+    <slot name="edit"></slot>
     <slot name="changecity"></slot>
   </header>
 </template>
 <script>
-import {mapState} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 export default {
   props: ['signinUp', 'goBack', 'headTitle'],
   computed: {
@@ -29,6 +30,12 @@ export default {
   },
   data() {
     return {}
+  },
+  mounted() {
+    this.getUserInfo();
+  },
+  methods: {
+    ...mapActions(['getUserInfo'])
   }
 }
 </script>
@@ -48,6 +55,10 @@ export default {
     .login_span {
       color: #fff;
     }
+    .user_avatar {
+      @include wh(.8rem, .8rem);
+      fill: #fff;
+    }
   }
   .head_goback {
     left: 0.4rem;
@@ -61,6 +72,7 @@ export default {
     .title_text {
       font-weight: 700;
       color: #fff;
+      width: 7.6rem;
     }
   }
 }
