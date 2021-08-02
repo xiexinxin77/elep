@@ -12,6 +12,7 @@ const addAddress = r => require.ensure([], () => r(require('../pages/profile/chi
 const addDetail = r => require.ensure([], () => r(require('../pages/profile/children/children/children/children/addDetail.vue')), 'addDetail')
 const blance = r => require.ensure([], () => r(require('../pages/blance/blance')), 'blance')
 const benefit = r => require.ensure([], () => r(require('../pages/benefit/benefit')), 'benefit')
+const search = r => require.ensure([], () => r(require('../pages/search/search')), 'search')
 export default [
   {
     path: '/',
@@ -67,6 +68,10 @@ export default [
       {
         path: '/benefit',
         component: benefit
+      },
+      {
+        path: '/search/:geohash',
+        component: search
       },
       {
         path: '/test',
