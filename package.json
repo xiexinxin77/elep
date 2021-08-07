@@ -13,8 +13,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "better-scroll": "1.15.2",
+    "element-ui": "^2.15.5",
     "fastclick": "^1.0.6",
     "iscroll": "^5.2.0",
+    "lodash": "^4.17.21",
     "showdown": "^1.6.4",
     "svg-sprite-loader": "^6.0.9",
     "vue": "^2.1.0",

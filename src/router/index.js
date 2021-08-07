@@ -13,6 +13,7 @@ const addDetail = r => require.ensure([], () => r(require('../pages/profile/chil
 const blance = r => require.ensure([], () => r(require('../pages/blance/blance')), 'blance')
 const benefit = r => require.ensure([], () => r(require('../pages/benefit/benefit')), 'benefit')
 const search = r => require.ensure([], () => r(require('../pages/search/search')), 'search')
+const food = r => require.ensure([], () => r(require('../pages/food/food')), 'food')
 export default [
   {
     path: '/',
@@ -32,7 +33,10 @@ export default [
       },
       {
         path: '/msite',
-        component: msite
+        component: msite,
+        meta: {
+          keepAlive: false
+        }
       },
       {
         path: '/login',
@@ -71,7 +75,14 @@ export default [
       },
       {
         path: '/search/:geohash',
-        component: search
+        component: search,
+      },
+      {
+        path: '/food',
+        component: food,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: '/test',

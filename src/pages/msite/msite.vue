@@ -12,7 +12,7 @@
     	<div class="swiper-container" v-if="foodTypes.length">
 		    <div class="swiper-wrapper">
 		      <div class="swiper-slide food_types_container" v-for="(item, index) in foodTypes" :key="index">
-	        	<router-link :to="{path: '/food', query: {geohash, title: foodItem.title}}" v-for="foodItem in item" :key="foodItem.id" class="link_to_food">
+	        	<router-link :to="{path: '/food', query: {geohash, headTitle: foodItem.title, restaurant_category_id: foodItem.id}}" v-for="foodItem in item" :key="foodItem.id" class="link_to_food">
 	        		<figure>
 	        			<img :src="imgBaseUrl + foodItem.image_url">
 	        			<figcaption>{{foodItem.title}}</figcaption>

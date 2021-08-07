@@ -7,6 +7,7 @@ import {routerMode} from './config/env'
 import SvgIcon from './components/svg/svgIcon.vue'
 import pm from './config/pm'
 import alert from './components/common/alertTip'
+import loading from './components/common/loading'
 Vue.use(VueRouter)
 Vue.component('svg-icon', SvgIcon)
 // 让 icons/svg下面的图片自动导入，而不是每次手动导入
@@ -18,20 +19,22 @@ const req = require.context('src/assets/icons', true, /\.svg$/)
 requireAll(req)
 pm.init()
 Vue.use(alert)
+Vue.use(loading)
 const router = new VueRouter({
   routes,
   module: routerMode,
   strict: process.env.NODE_ENV !== 'production',
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
+    if (from.meta.keepAlive) {
+      from.meta.savedPosition = document.body.scrollTop || document.documentElement.scrollTop
+    }
+    if (to.meta.keepAlive) {
+      return {x: 0, y: to.meta.savedPosition || 0}
     } else {
-      if (from.meta.keepAlive) {
-        from.meta.savedPosition = document.body.scrollTop
-      }
-      return {x: 0, y: from.meta.savedPosition || 0}
+      return {x: 0, y: 0}
     }
   }
+  
 })
 
 new Vue({
