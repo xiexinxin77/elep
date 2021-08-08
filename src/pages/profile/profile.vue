@@ -70,7 +70,7 @@
             </svg>
           </span>
         </li>
-        <li>
+        <router-link tag="li" to="/vipcard">
           <span class="info">
             <span>
               <svg fill="#ffc636" class="svg">
@@ -84,7 +84,7 @@
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
             </svg>
           </p>
-        </li>
+        </router-link>
       </ul>
     </div>
     <div class="profile-1reTe">

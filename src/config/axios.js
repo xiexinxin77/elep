@@ -1,6 +1,7 @@
 import axios from 'axios'
 import config from '../../config';
 import { baseUrl } from "./env";
+import Vue from 'vue'
 import {showScreenLoading, hideScreenLoading} from './loading'
 axios.defaults.baseURL = baseUrl
 axios.interceptors.request.use(config => {
@@ -25,6 +26,15 @@ axios.interceptors.response.use(response => {
 })
 axios.interceptors.response.use(function(res) {
   return res.data;
+})
+axios.interceptors.response.use(function(res) {
+  if (res && res.message) {
+    Vue.prototype.$alert({
+      alertText: res.message,
+      confirmBtnText: '确定'
+    })
+  }
+  return res
 })
 let fetch = function(url, data = {}, method = 'GET', headers = {showLoading: true}) {
   method = method.toUpperCase()

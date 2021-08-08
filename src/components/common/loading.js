@@ -1,5 +1,4 @@
 import loading from './loading.vue'
-import Vue from 'vue'
 const Loading = {}
 Loading.install = function(Vue) {
 

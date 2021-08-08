@@ -14,6 +14,10 @@ const blance = r => require.ensure([], () => r(require('../pages/blance/blance')
 const benefit = r => require.ensure([], () => r(require('../pages/benefit/benefit')), 'benefit')
 const search = r => require.ensure([], () => r(require('../pages/search/search')), 'search')
 const food = r => require.ensure([], () => r(require('../pages/food/food')), 'food')
+const vipcard = r => require.ensure([], () => r(require('../pages/vipcard/vipcard')), 'vipcard')
+const invoiceRecord = r => require.ensure([], () => r(require('../pages/vipcard/children/invoiceRecord')), 'invoiceRecord')
+const useCart = r => require.ensure([], () => r(require('../pages/vipcard/children/useCart')), 'useCart')
+const payment = r => require.ensure([], () => r(require('../pages/payment/payment.vue')), 'payment')
 export default [
   {
     path: '/',
@@ -83,6 +87,24 @@ export default [
         meta: {
           keepAlive: true
         }
+      },
+      {
+        path: '/vipcard',
+        component: vipcard,
+        children: [
+          {
+            path: 'invoiceRecord',
+            component: invoiceRecord
+          },
+          {
+            path: 'useCart',
+            component: useCart
+          }
+        ]
+      },
+      {
+        path: '/payment',
+        component: payment
       },
       {
         path: '/test',

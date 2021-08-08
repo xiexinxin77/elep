@@ -109,3 +109,15 @@ html,body{
 .animation_opactiy{
   animation: backOpacity 2s ease-in-out infinite;
 }
+.btn {
+  width: 92%;
+  height: 2rem;
+  background-color: #56d176;
+  font-size: .7rem;
+  color: #fff;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 5px;
+  font-weight: 700;
+  margin: .7rem auto;
+}
