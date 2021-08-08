@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import alertTip from './alertTip.vue'
+
 function create(component, props) {
+  const AlertConstructor = Vue.extend(alertTip)
+  const instance = new AlertConstructor()
+  instance.$mount()
+  document.body.appendChild(instance.$el)
+  return instance
+
   const vm = new Vue({
     /* render函数用来生成虚拟dom，接收一个createElement函数（一般称之h函数），
       并返回该函数的执行结果(生成的虚拟dom)。
@@ -22,14 +29,21 @@ function create(component, props) {
          document.body.removeChild(vm.$el)
          vm.$destroy()
      }
- 
+
      return comp
 }
 
 export default {
   install(Vue) {
+    let alertTip = create()
     Vue.prototype.$alert = function(options) {
-      return create(alertTip, options)
+      for(let key in options) {
+        alertTip[key] = options[key]
+      }
+      alertTip.showAlert = true
     }
+    // Vue.prototype.$alert = function(options) {
+    //   return create(alertTip, options)
+    // }
   }
 }

@@ -20,7 +20,7 @@
             return{
                 positionY: 0,
                 timer: null,
-                showAlert: true
+                showAlert: false
             }
         },
         mounted(){
